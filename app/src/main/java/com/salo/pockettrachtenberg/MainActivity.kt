@@ -1,34 +1,87 @@
 package com.salo.pockettrachtenberg
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
-import java.io.File
 
 class MainActivity : AppCompatActivity() {
+
+    var win = 0
+    var lose = 0
+    var digit = 3
+    var number = random(digit)
+    var multiplier = 0
+    var multiNumber = number?.toInt()?.times(multiplier)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val data = getSharedPreferences("SP_INFO", Context.MODE_PRIVATE)
+        val editData = data.edit()
+        //                                                int is to small for this app
 
-        // int is to small for this app
+        id_win_textview.text = data.getString("WIN", "")
+        id_lose_textview.text = data.getString("LOSE","")
 
-        var win = 0
-        var lose = 0
-        var digit = id_digits_textview.text.toString().toInt()
-        var number = random(digit)
-        var multiNumber = number?.toInt()?.times(12)
+        id_multiply11_switch.setOnCheckedChangeListener { _, isChecked ->
 
-        id_num_textview.text = number
+            if (isChecked) {
+                id_num_textview.text = number
+                multiplier = 11
 
-        var answerString: String
-        var answerInt: Int
+                id_multiply12_switch.isEnabled = false
+
+                checkButton(data, editData)
+            }
+            else {
+                id_check_button.isEnabled = false
+                id_multiply12_switch.isEnabled = true
+                id_num_textview.text = ""
+            }
+        }
+
+        id_multiply12_switch.setOnCheckedChangeListener { _, isChecked ->
+
+            if (isChecked) {
+                id_num_textview.text = number
+                multiplier = 12
+
+                id_multiply11_switch.isEnabled = false
+
+                checkButton(data, editData)
+            }
+            else {
+                id_check_button.isEnabled = false
+                id_multiply11_switch.isEnabled = true
+                id_num_textview.text = ""
+            }
+        }
+
+        id_minus_digit_button.setOnClickListener {
+            digit--
+            id_number_digit_textview.text = digit.toString()
+        }
+        id_plus_digit_button.setOnClickListener {
+            digit++
+            id_number_digit_textview.text = digit.toString()
+        }
+
+    }
+
+    private fun checkButton (data: SharedPreferences, editData: SharedPreferences.Editor) {
+
+        id_check_button.isEnabled = true
+
+        win = (data.getString("WIN", "")?.toInt() ?: "") as Int
+        lose = (data.getString("LOSE", "")?.toInt() ?: "") as Int
 
         id_check_button.setOnClickListener {
 
-            answerString = id_check_answer_edittext.text.toString()
-            digit = id_digits_textview.text.toString().toInt()
+            var answerString = id_check_answer_edittext.text.toString()
+            digit = id_number_digit_textview.text.toString().toInt()
 
             if (answerString.isEmpty()) {
 
@@ -36,19 +89,25 @@ class MainActivity : AppCompatActivity() {
             }
             else {
 
-                answerInt = answerString.toInt()
-                multiNumber = number?.toInt()?.times(12)
+                var answerInt = answerString.toInt()
+                multiNumber = number?.toInt()?.times(multiplier)
 
                 if (answerInt == multiNumber) {
 
                     win++
-                    id_win_textview.text = win.toString()
+                    editData.putString("WIN", win.toString())
+                    editData.apply()
+
+                    id_win_textview.text = data.getString("WIN", "")
                     Toast.makeText(this, "Yeeepy", Toast.LENGTH_SHORT).show()
                 }
                 else if (answerInt != multiNumber) {
 
                     lose++
-                    id_lose_textview.text = lose.toString()
+                    editData.putString("LOSE", lose.toString())
+                    editData.apply()
+
+                    id_lose_textview.text = data.getString("LOSE","")
                     Toast.makeText(this, "Upsi-dupsi. Answer is: $multiNumber", Toast.LENGTH_SHORT).show()
                 }
 
@@ -56,15 +115,6 @@ class MainActivity : AppCompatActivity() {
                 id_num_textview.text = number
                 id_check_answer_edittext.text.clear()
             }
-        }
-
-        id_minus_digit_button.setOnClickListener {
-            digit--
-            id_digits_textview.text = digit.toString()
-        }
-        id_plus_digit_button.setOnClickListener {
-            digit++
-            id_digits_textview.text = digit.toString()
         }
     }
 
