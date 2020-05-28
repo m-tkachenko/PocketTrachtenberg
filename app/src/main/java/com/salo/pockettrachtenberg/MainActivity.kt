@@ -7,14 +7,15 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
+@Suppress("CAST_NEVER_SUCCEEDS")
 class MainActivity : AppCompatActivity() {
 
-    var win = 0
-    var lose = 0
-    var digit = 3
-    var number = random(digit)
-    var multiplier = 0
-    var multiNumber = number?.toInt()?.times(multiplier)
+    private var win = 0
+    private var lose = 0
+    private var digit = 3
+    private var number = random(digit)
+    private var multiplier = 0
+    private var multiNumber = number?.toInt()?.times(multiplier)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,9 +23,11 @@ class MainActivity : AppCompatActivity() {
         val data = getSharedPreferences("SP_INFO", Context.MODE_PRIVATE)
         val editData = data.edit()
         //                                                int is to small for this app
-
         id_win_textview.text = data.getString("WIN", "")
         id_lose_textview.text = data.getString("LOSE","")
+
+
+
 
         id_multiply11_switch.setOnCheckedChangeListener { _, isChecked ->
 
@@ -39,10 +42,10 @@ class MainActivity : AppCompatActivity() {
             else {
                 id_check_button.isEnabled = false
                 id_multiply12_switch.isEnabled = true
+
                 id_num_textview.text = ""
             }
         }
-
         id_multiply12_switch.setOnCheckedChangeListener { _, isChecked ->
 
             if (isChecked) {
@@ -56,9 +59,14 @@ class MainActivity : AppCompatActivity() {
             else {
                 id_check_button.isEnabled = false
                 id_multiply11_switch.isEnabled = true
+
                 id_num_textview.text = ""
             }
         }
+
+
+
+
 
         id_minus_digit_button.setOnClickListener {
             digit--
@@ -68,7 +76,6 @@ class MainActivity : AppCompatActivity() {
             digit++
             id_number_digit_textview.text = digit.toString()
         }
-
     }
 
     private fun checkButton (data: SharedPreferences, editData: SharedPreferences.Editor) {
@@ -80,7 +87,7 @@ class MainActivity : AppCompatActivity() {
 
         id_check_button.setOnClickListener {
 
-            var answerString = id_check_answer_edittext.text.toString()
+            val answerString = id_check_answer_edittext.text.toString()
             digit = id_number_digit_textview.text.toString().toInt()
 
             if (answerString.isEmpty()) {
@@ -89,7 +96,7 @@ class MainActivity : AppCompatActivity() {
             }
             else {
 
-                var answerInt = answerString.toInt()
+                val answerInt = answerString.toInt()
                 multiNumber = number?.toInt()?.times(multiplier)
 
                 if (answerInt == multiNumber) {
