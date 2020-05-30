@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
 
     private var win = 0
     private var lose = 0
-    private var digit = 3
+    private var digit = 2
     private var number = random(digit)
     private var multiplier = 0
     private var multiNumber = number?.toInt()?.times(multiplier)
@@ -20,61 +20,68 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        digitsButtons()
         val data = getSharedPreferences("SP_INFO", Context.MODE_PRIVATE)
         val editData = data.edit()
         //                                                int is to small for this app
         id_win_textview.text = data.getString("WIN", "")
         id_lose_textview.text = data.getString("LOSE","")
 
-
-
-
         id_multiply11_switch.setOnCheckedChangeListener { _, isChecked ->
-
             if (isChecked) {
                 id_num_textview.text = number
                 multiplier = 11
 
                 id_multiply12_switch.isEnabled = false
+                id_multiply6_switch.isEnabled = false
 
                 checkButton(data, editData)
             }
             else {
                 id_check_button.isEnabled = false
                 id_multiply12_switch.isEnabled = true
+                id_multiply6_switch.isEnabled = true
 
                 id_num_textview.text = ""
             }
         }
-        id_multiply12_switch.setOnCheckedChangeListener { _, isChecked ->
 
+        id_multiply12_switch.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 id_num_textview.text = number
                 multiplier = 12
 
                 id_multiply11_switch.isEnabled = false
+                id_multiply6_switch.isEnabled = false
 
                 checkButton(data, editData)
             }
             else {
                 id_check_button.isEnabled = false
                 id_multiply11_switch.isEnabled = true
+                id_multiply6_switch.isEnabled = true
 
                 id_num_textview.text = ""
             }
         }
 
+        id_multiply6_switch.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                id_num_textview.text = number
+                multiplier = 6
 
+                id_multiply11_switch.isEnabled = false
+                id_multiply12_switch.isEnabled = false
 
+                checkButton(data, editData)
+            }
+            else {
+                id_check_button.isEnabled = false
+                id_multiply11_switch.isEnabled = true
+                id_multiply12_switch.isEnabled = true
 
-
-        id_minus_digit_button.setOnClickListener {
-            digit--
-            id_number_digit_textview.text = digit.toString()
-        }
-        id_plus_digit_button.setOnClickListener {
-            digit++
-            id_number_digit_textview.text = digit.toString()
+                id_num_textview.text = ""
+            }
         }
     }
 
@@ -146,5 +153,16 @@ class MainActivity : AppCompatActivity() {
         for (i in 0 until digits) { randomizeNumber.append(digitArray[i]) }
 
         return randomizeNumber.toString()
+    }
+
+    private fun digitsButtons() {
+        id_minus_digit_button.setOnClickListener {
+            digit--
+            id_number_digit_textview.text = digit.toString()
+        }
+        id_plus_digit_button.setOnClickListener {
+            digit++
+            id_number_digit_textview.text = digit.toString()
+        }
     }
 }
