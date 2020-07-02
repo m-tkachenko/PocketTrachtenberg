@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,7 +8,36 @@
     android:descendantFocusability="beforeDescendants"
     android:focusableInTouchMode="true"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:id="@+id/main_constraint_layout">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/colorToolbarBlue"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/id_trachtenberg_enter_button"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/icon_trachtenberg_disabled" />
+
+        </RelativeLayout>
+    </androidx.appcompat.widget.Toolbar>
 
     <TextView
         android:id="@+id/id_num_textview"
@@ -15,7 +45,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text=""
-        android:textColor="@color/colorSimpleYellow"
+        android:textColor="@color/colorDarkBlue"
         android:textSize="35sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -48,13 +78,13 @@
         app:layout_constraintBottom_toTopOf="@+id/id_number_digit_textview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <TextView
         android:id="@+id/id_number_digit_textview"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="42dp"
         android:background="@drawable/style_digit_number_textview"
         android:gravity="center_horizontal"
         android:text="@string/string_number_digit_textview"
@@ -63,14 +93,13 @@
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <EditText
         android:id="@+id/id_check_answer_edittext"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:autofillHints=""
         android:background="@android:color/transparent"
         android:gravity="center_horizontal"
         android:hint="@string/string_hint_answer_edittext"
@@ -116,22 +145,23 @@
         app:layout_constraintBottom_toTopOf="@+id/id_lose_textview"
         app:layout_constraintEnd_toStartOf="@+id/id_number_digit_textview"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <TextView
         android:id="@+id/id_lose_textview"
         android:layout_width="90dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
         android:background="@drawable/style_lose_number_textview"
         android:gravity="center_horizontal"
         android:paddingBottom="3dp"
-        android:text=""
+        android:text="0"
         android:textAlignment="center"
         android:textColor="@color/colorPrettyRed"
         android:textSize="25sp"
         app:layout_constraintEnd_toStartOf="@+id/id_number_digit_textview"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/id_text_lose_textview" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <TextView
         android:id="@+id/id_text_win_textview"
@@ -148,22 +178,23 @@
         app:layout_constraintBottom_toTopOf="@+id/id_win_textview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/id_number_digit_textview"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <TextView
         android:id="@+id/id_win_textview"
         android:layout_width="90dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
         android:background="@drawable/style_win_number_textview"
         android:gravity="center_horizontal"
         android:paddingBottom="3dp"
-        android:text=""
+        android:text="0"
         android:textAlignment="center"
         android:textColor="@color/colorBestGreen"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/id_number_digit_textview"
-        app:layout_constraintTop_toBottomOf="@+id/id_text_win_textview" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <ScrollView
         android:layout_width="match_parent"

@@ -15,6 +15,7 @@ import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationCompat.VISIBILITY_PUBLIC
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat.getSystemService
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 import kotlin.properties.Delegates
@@ -23,16 +24,16 @@ import kotlin.properties.Delegates
 class MainActivity : AppCompatActivity() {
 
     private var win: Int
-        get() { return data.getString("WIN", "")?.toInt() ?: 0 }
+        get() { return data.getInt("WIN", 0) }
         set(value) {
-            editData.putString("WIN", value.toString())
+            editData.putInt("WIN", value)
             editData.apply()
         }
 
     private var lose: Int
-        get() { return data.getString("LOSE", "")?.toInt() ?: 0 }
+        get() { return data.getInt("LOSE", 0) }
         set(value) {
-            editData.putString("LOSE", value.toString())
+            editData.putInt("LOSE", value)
             editData.apply()
         }
 
@@ -41,7 +42,7 @@ class MainActivity : AppCompatActivity() {
     private var multiplier = 0
     private var multiNumber = number?.toInt()?.times(multiplier)
     private var channelID = "notification"
-    private var practiceNotificationID = 3
+    private val practiceNotificationID = 3
     lateinit var data: SharedPreferences
     lateinit var editData: SharedPreferences.Editor
 
@@ -49,6 +50,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 //        createNotificationChanell()
         setContentView(R.layout.activity_main)
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
+        setSupportActionBar(findViewById(R.id.toolbar))
         digitsButtons()
         data = getSharedPreferences("SP_INFO", Context.MODE_PRIVATE)
         editData = data.edit()
@@ -114,6 +117,10 @@ class MainActivity : AppCompatActivity() {
                 id_num_textview.text = ""
             }
         }
+
+        id_trachtenberg_enter_button.setOnClickListener {
+            startActivity(Intent(this, TrachtenbergActivity::class.java))
+        }
     }
 
     private fun createNotification() {
@@ -163,8 +170,7 @@ class MainActivity : AppCompatActivity() {
             digit = id_number_digit_textview.text.toString().toInt()
 
             if (answerString.isEmpty()) {
-
-                Toast.makeText(this, "Please enter the answer", Toast.LENGTH_SHORT).show()
+                Snackbar.make(findViewById(R.id.main_constraint_layout), "Please enter the answer", Snackbar.LENGTH_SHORT).show()
             }
             else {
 
@@ -175,13 +181,13 @@ class MainActivity : AppCompatActivity() {
 
                     win++
 
-                    Toast.makeText(this, "Yeeepy", Toast.LENGTH_SHORT).show()
+                    Snackbar.make(findViewById(R.id.main_constraint_layout), "Yeeepy", Snackbar.LENGTH_SHORT).show()
                 }
                 else if (answerInt != multiNumber) {
 
                     lose++
 
-                    Toast.makeText(this, "Upsi-dupsi. Answer is: $multiNumber", Toast.LENGTH_SHORT).show()
+                    Snackbar.make(findViewById(R.id.main_constraint_layout), "Upsi-dupsi. Answer is: $multiNumber", Snackbar.LENGTH_LONG).show()
                 }
 
                 number = random(digit)
