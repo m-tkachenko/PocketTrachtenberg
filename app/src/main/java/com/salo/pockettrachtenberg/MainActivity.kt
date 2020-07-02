@@ -1,31 +1,62 @@
 package com.salo.pockettrachtenberg
 
+import android.app.AlarmManager
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
+import android.os.Build
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationCompat.VISIBILITY_PUBLIC
+import androidx.core.app.NotificationManagerCompat
+import androidx.core.content.ContextCompat.getSystemService
 import kotlinx.android.synthetic.main.activity_main.*
+import java.util.*
+import kotlin.properties.Delegates
 
 @Suppress("CAST_NEVER_SUCCEEDS")
 class MainActivity : AppCompatActivity() {
 
-    private var win = 0
-    private var lose = 0
+    private var win: Int
+        get() { return data.getString("WIN", "")?.toInt() ?: 0 }
+        set(value) {
+            editData.putString("WIN", value.toString())
+            editData.apply()
+        }
+
+    private var lose: Int
+        get() { return data.getString("LOSE", "")?.toInt() ?: 0 }
+        set(value) {
+            editData.putString("LOSE", value.toString())
+            editData.apply()
+        }
+
     private var digit = 2
     private var number = random(digit)
     private var multiplier = 0
     private var multiNumber = number?.toInt()?.times(multiplier)
+    private var channelID = "notification"
+    private var practiceNotificationID = 3
+    lateinit var data: SharedPreferences
+    lateinit var editData: SharedPreferences.Editor
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+//        createNotificationChanell()
         setContentView(R.layout.activity_main)
         digitsButtons()
-        val data = getSharedPreferences("SP_INFO", Context.MODE_PRIVATE)
-        val editData = data.edit()
+        data = getSharedPreferences("SP_INFO", Context.MODE_PRIVATE)
+        editData = data.edit()
         //                                                int is to small for this app
-        id_win_textview.text = data.getString("WIN", "")
-        id_lose_textview.text = data.getString("LOSE","")
+        id_win_textview.text = win.toString()
+        id_lose_textview.text = lose.toString()
+
+//        createNotification()
 
         id_multiply11_switch.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
@@ -35,7 +66,7 @@ class MainActivity : AppCompatActivity() {
                 id_multiply12_switch.isEnabled = false
                 id_multiply6_switch.isEnabled = false
 
-                checkButton(data, editData)
+                checkButton()
             }
             else {
                 id_check_button.isEnabled = false
@@ -54,7 +85,7 @@ class MainActivity : AppCompatActivity() {
                 id_multiply11_switch.isEnabled = false
                 id_multiply6_switch.isEnabled = false
 
-                checkButton(data, editData)
+                checkButton()
             }
             else {
                 id_check_button.isEnabled = false
@@ -73,7 +104,7 @@ class MainActivity : AppCompatActivity() {
                 id_multiply11_switch.isEnabled = false
                 id_multiply12_switch.isEnabled = false
 
-                checkButton(data, editData)
+                checkButton()
             }
             else {
                 id_check_button.isEnabled = false
@@ -85,12 +116,46 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun checkButton (data: SharedPreferences, editData: SharedPreferences.Editor) {
+    private fun createNotification() {
+
+        val intent = Intent(this, MainActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        }
+        val pendingIntent = PendingIntent.getActivity(this, 0, intent, 0)
+
+        val builderNotification = NotificationCompat.Builder(this, channelID)
+            .setSmallIcon(R.mipmap.app_icon)
+            .setContentTitle("Trachtenberg in your pocket")
+            .setContentText("Let's practise")
+            .setPriority(NotificationCompat.PRIORITY_HIGH)
+            .setContentIntent(pendingIntent)
+            .setAutoCancel(true)
+            .setVisibility(VISIBILITY_PUBLIC)
+
+        with (NotificationManagerCompat.from(this)) {
+            notify(practiceNotificationID, builderNotification.build())
+        }
+    }
+
+    private fun createNotificationChanell() {
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+
+            val name = "notificationChanell"
+            val descriptionText = "Chanell for notifications"
+            val importance = NotificationManager.IMPORTANCE_HIGH
+            val chanell = NotificationChannel(channelID, name, importance).apply {
+                description = descriptionText
+            }
+
+            val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.createNotificationChannel(chanell)
+        }
+    }
+
+    private fun checkButton () {
 
         id_check_button.isEnabled = true
-
-        win = (data.getString("WIN", "")?.toInt() ?: "") as Int
-        lose = (data.getString("LOSE", "")?.toInt() ?: "") as Int
 
         id_check_button.setOnClickListener {
 
@@ -109,25 +174,22 @@ class MainActivity : AppCompatActivity() {
                 if (answerInt == multiNumber) {
 
                     win++
-                    editData.putString("WIN", win.toString())
-                    editData.apply()
 
-                    id_win_textview.text = data.getString("WIN", "")
                     Toast.makeText(this, "Yeeepy", Toast.LENGTH_SHORT).show()
                 }
                 else if (answerInt != multiNumber) {
 
                     lose++
-                    editData.putString("LOSE", lose.toString())
-                    editData.apply()
 
-                    id_lose_textview.text = data.getString("LOSE","")
                     Toast.makeText(this, "Upsi-dupsi. Answer is: $multiNumber", Toast.LENGTH_SHORT).show()
                 }
 
                 number = random(digit)
                 id_num_textview.text = number
                 id_check_answer_edittext.text.clear()
+
+                id_win_textview.text = win.toString()
+                id_lose_textview.text = lose.toString()
             }
         }
     }

@@ -171,7 +171,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/Applications/Android%20Studio.app/Contents/plugins/android/lib/android.jar!/images/material_design_icons/navigation/ic_arrow_downward_black_24dp.xml" />
+                                      <entry key="url" value="jar:file:/Applications/Android%20Studio.app/Contents/plugins/android/lib/android.jar!/images/material/icons/materialicons/error_outline/baseline_error_outline_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -181,7 +181,8 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="icon_arrow_minus_digit" />
+                            <entry key="color" value="17c1fb" />
+                            <entry key="outputName" value="icon_small_notification" />
                             <entry key="sourceFile" value="$USER_HOME$" />
                           </map>
                         </option>
