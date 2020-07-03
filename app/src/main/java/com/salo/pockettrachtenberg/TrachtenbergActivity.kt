@@ -11,8 +11,5 @@ class TrachtenbergActivity : AppCompatActivity() {
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         setContentView(R.layout.activity_trachtenberg)
 
-        id_trachtenberg_exit_button.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
-        }
     }
 }
