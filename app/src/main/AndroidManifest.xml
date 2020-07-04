@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/app_icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TrachtenbergActivity"></activity>
+        <activity android:name=".TrachtenbergChatActivity"></activity>
         <activity
             android:name=".MainActivity"
             android:windowSoftInputMode="adjustPan">

@@ -374,7 +374,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/Applications/Android%20Studio.app/Contents/plugins/android/lib/android.jar!/images/material/icons/materialicons/tag_faces/baseline_tag_faces_24.xml" />
+                                      <entry key="url" value="jar:file:/Applications/Android%20Studio.app/Contents/plugins/android/lib/android.jar!/images/material/icons/materialicons/chat/baseline_chat_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -385,7 +385,7 @@
                         <option name="values">
                           <map>
                             <entry key="color" value="ffffff" />
-                            <entry key="outputName" value="icon_trachtenberg_enabled" />
+                            <entry key="outputName" value="icon_trachtenberg_chat_contact" />
                             <entry key="sourceFile" value="$USER_HOME$" />
                           </map>
                         </option>

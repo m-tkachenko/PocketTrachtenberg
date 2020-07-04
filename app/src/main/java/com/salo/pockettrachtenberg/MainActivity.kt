@@ -46,7 +46,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 //        createNotificationChanell()
         setContentView(R.layout.activity_main)
-        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
         setSupportActionBar(findViewById(R.id.toolbar))
         digitsButtons()
         data = getSharedPreferences("SP_INFO", Context.MODE_PRIVATE)
@@ -114,6 +113,12 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        id_trachtenberg_chat_button_enter.setOnClickListener {
+            val intent = Intent(this, TrachtenbergChatActivity::class.java)
+            startActivity(intent)
+
+            overridePendingTransition(R.anim.slide_in_up, R.anim.slide_out_up)
+        }
     }
 
     private fun createNotification() {
