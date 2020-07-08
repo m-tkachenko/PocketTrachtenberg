@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TrachtenbergInPocket</string>
+    <string name="app_name">PocketTrachtenberg</string>
     <string name="string_check_button">Check</string>
     <string name="string_text_digit_textview">Digit</string>
     <string name="string_number_digit_textview">2</string>

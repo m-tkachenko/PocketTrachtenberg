@@ -9,16 +9,21 @@
         android:roundIcon="@mipmap/app_icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TrachtenbergChatActivity"></activity>
-        <activity
-            android:name=".MainActivity"
-            android:windowSoftInputMode="adjustPan">
+        <activity android:name=".SquaringLearnActivity"></activity>
+        <activity android:name=".DevideLearnActivity" />
+        <activity android:name=".MultiplyLearnActivity" />
+        <activity android:name=".PlusLearnActivity" />
+        <activity android:name=".MethodsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".TrachtenbergChatActivity" />
+        <activity
+            android:name=".MainActivity"
+            android:windowSoftInputMode="adjustPan" />
     </application>
 
 </manifest>

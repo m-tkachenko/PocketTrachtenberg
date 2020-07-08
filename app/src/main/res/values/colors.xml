@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorPrimary">#F3DE8A</color>
+    <color name="colorPrimaryDark">#EAC635</color>
+    <color name="colorSecondary">#EB9486</color>
+    <color name="colorSecondaryDark">#DE4C35</color>
+
+
+
+
+
     <color name="colorSkyBlue">#08B2E3</color>
     <color name="colorToolbarBlue">#0ABEF3</color>
     <color name="colorPrettyRed">#EE6352</color>
     <color name="colorDarkBlue">#034E76</color>
-    <color name="colorSimpleYellow">#FFF269</color>
+    <color name="colorSimpleYellow">#EED260</color>
     <color name="colorBestGreen">#06A77D</color>
     <color name="colorPurpleCosmos">#9F5AA0</color>
-    <color name="colorDefaultWhite">#F9F9F9</color>
+    <color name="colorDefaultWhite">#FFFFFF</color>
 </resources>

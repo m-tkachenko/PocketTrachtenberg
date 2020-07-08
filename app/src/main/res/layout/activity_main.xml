@@ -11,35 +11,6 @@
     tools:context=".MainActivity"
     android:id="@+id/main_constraint_layout">
 
-<!--    <androidx.appcompat.widget.Toolbar-->
-<!--        android:id="@+id/toolbar"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="?attr/actionBarSize"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        android:background="@color/colorToolbarBlue"-->
-<!--        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"-->
-<!--        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">-->
-
-<!--        <RelativeLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent">-->
-<!--            -->
-<!--            <TextView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="Training"-->
-<!--                android:textColor="@color/colorDefaultWhite"-->
-<!--                android:textSize="30sp"-->
-<!--                android:layout_centerVertical="true"-->
-<!--                android:layout_marginLeft="32dp"-->
-<!--                android:layout_marginStart="32dp" />-->
-<!--            -->
-<!--        </RelativeLayout>-->
-
-<!--    </androidx.appcompat.widget.Toolbar>-->
-
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/id_trachtenberg_chat_button_enter"
         android:layout_width="wrap_content"
