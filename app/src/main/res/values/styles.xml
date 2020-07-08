@@ -13,13 +13,6 @@
         <item name="android:fontFamily" tools:targetApi="jelly_bean">@font/font_roboto</item>
     </style>
 
-    <style name = "Widget.MyApp.CardViewStyle" parent="Widget.MaterialComponents.CardView">
-
-        <item name = "colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-
-    </style>
-
     <style name="Widget.MyApp.SmallShapeAppearance" parent="ShapeAppearance.MaterialComponents.SmallComponent">
         <item name="cornerFamily">cut</item>
         <item name="cornerSize">5dp</item>

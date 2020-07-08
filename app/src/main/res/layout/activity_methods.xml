@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MethodsActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".MethodsActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
@@ -20,7 +19,8 @@
             android:id="@+id/topAppBar"
             style="@style/Widget.MaterialComponents.Toolbar.Primary"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize" />
+            android:layout_height="?attr/actionBarSize"
+            app:title="Sections" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -31,11 +31,13 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
+        app:cardElevation="5dp"
         app:layout_constraintHeight_percent="0.3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
         app:layout_constraintWidth_percent="0.435"
-        app:shapeAppearance="?attr/shapeAppearanceSmallComponent">
+        app:shapeAppearance="?attr/shapeAppearanceSmallComponent"
+        tools:targetApi="lollipop">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -65,6 +67,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
+        app:cardElevation="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.3"
         app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
@@ -98,6 +101,7 @@
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
+        app:cardElevation="5dp"
         android:layout_marginTop="16dp"
         app:layout_constraintHeight_percent="0.3"
         app:layout_constraintStart_toStartOf="parent"
@@ -117,7 +121,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
                 android:gravity="center"
-                android:text="Devide"
+                android:text="Divide"
                 android:textAlignment="center"
                 android:textColor="@color/colorDefaultWhite"
                 android:textSize="30sp" />
@@ -134,6 +138,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:cardElevation="5dp"
         app:layout_constraintHeight_percent="0.3"
         app:layout_constraintTop_toBottomOf="@+id/id_cardview_material_plus"
         app:layout_constraintWidth_percent="0.435"
@@ -161,8 +166,8 @@
     </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.card.MaterialCardView
-        style="@style/AppTheme"
         android:id="@+id/id_cardview_material_trachtenberg"
+        style="@style/AppTheme"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
@@ -173,7 +178,8 @@
         android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.19"
+        app:cardElevation="5dp"
+        app:layout_constraintHeight_percent="0.2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/id_cardview_material_devide"
         app:shapeAppearance="?attr/shapeAppearanceSmallComponent">
@@ -185,11 +191,11 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:gravity="center"
                 android:text="Trachtenberg"
                 android:textAlignment="center"
-                android:textSize="30sp"
                 android:textColor="@color/colorDefaultWhite"
-                android:gravity="center" />
+                android:textSize="30sp" />
 
         </LinearLayout>
 
