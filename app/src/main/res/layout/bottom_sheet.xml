@@ -13,24 +13,34 @@
     app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/id_learn_button_in_bottom_sheet"
         android:layout_width="0dp"
         android:layout_height="match_parent"
+        android:layout_marginTop="-16dp"
+        android:layout_marginBottom="-16dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:text="Learn"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintWidth_percent="0.45"
-        android:text="Learn"/>
+        app:layout_constraintWidth_percent="0.5" />
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/id_practice_button_in_bottom_sheet"
         android:layout_width="0dp"
         android:layout_height="match_parent"
+        android:layout_marginTop="-16dp"
+        android:layout_marginBottom="-16dp"
+        android:backgroundTint="@color/colorPrimary"
         android:text="Practice"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintWidth_percent="0.45" />
+        app:layout_constraintWidth_percent="0.5" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"

@@ -35,9 +35,11 @@
             android:orientation="vertical">
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/id_multiply6_button"
+                android:id="@+id/id_multiply11_button"
+                android:backgroundTint="@color/colorPrimaryDark"
+                tools:targetApi="lollipop"
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="100dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="16dp"
@@ -48,9 +50,41 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/materialButton2"
+                android:id="@+id/id_multiply12_button"
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="100dp"
+                android:backgroundTint="@color/colorPrimaryDark"
+                tools:targetApi="lollipop"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/id_multiply11_button" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/id_multiply6_button"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:backgroundTint="@color/colorPrimaryDark"
+                tools:targetApi="lollipop"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/id_multiply12_button" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/id_multiply7_button"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:backgroundTint="@color/colorPrimaryDark"
+                tools:targetApi="lollipop"
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="16dp"
@@ -61,9 +95,11 @@
                 app:layout_constraintTop_toBottomOf="@+id/id_multiply6_button" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/materialButton3"
+                android:id="@+id/id_multiply5_button"
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="100dp"
+                android:backgroundTint="@color/colorPrimaryDark"
+                tools:targetApi="lollipop"
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="16dp"
@@ -71,7 +107,99 @@
                 android:layout_marginRight="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/materialButton2" />
+                app:layout_constraintTop_toBottomOf="@+id/id_multiply7_button" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/id_multiply9_button"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:backgroundTint="@color/colorPrimaryDark"
+                tools:targetApi="lollipop"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/id_multiply5_button" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/id_multiply8_button"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:backgroundTint="@color/colorPrimaryDark"
+                tools:targetApi="lollipop"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/id_multiply9_button" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/id_multiply4_button"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:backgroundTint="@color/colorPrimaryDark"
+                tools:targetApi="lollipop"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/id_multiply8_button" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/id_multiply3_button"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:backgroundTint="@color/colorPrimaryDark"
+                tools:targetApi="lollipop"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/id_multiply4_button" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/id_multiply2_button"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:backgroundTint="@color/colorPrimaryDark"
+                tools:targetApi="lollipop"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/id_multiply3_button" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/id_multiply1_button"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="24dp"
+                android:backgroundTint="@color/colorPrimaryDark"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/id_multiply2_button"
+                tools:targetApi="lollipop" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
