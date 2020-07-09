@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".SquaringLearnActivity"></activity>
         <activity android:name=".DevideLearnActivity" />
-        <activity android:name=".MultiplyLearnActivity" />
+        <activity android:name=".MultiplyActivity" />
         <activity android:name=".PlusLearnActivity" />
         <activity android:name=".MethodsActivity">
             <intent-filter>

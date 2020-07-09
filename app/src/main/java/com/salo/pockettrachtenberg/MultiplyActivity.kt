@@ -4,17 +4,17 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import kotlinx.android.synthetic.main.activity_multiply_learn.*
+import kotlinx.android.synthetic.main.activity_multiply.*
 import kotlinx.android.synthetic.main.bottom_sheet.*
 
-class MultiplyLearnActivity : AppCompatActivity() {
+class MultiplyActivity : AppCompatActivity() {
 
     private lateinit var sheetBehavior: BottomSheetBehavior<ConstraintLayout>
     public var mNumberForLearnOrPracticeActivity = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_multiply_learn)
+        setContentView(R.layout.activity_multiply)
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
 
         sheetBehavior = BottomSheetBehavior.from(bottom_sheet)
