@@ -1,9 +1,12 @@
 package com.salo.pockettrachtenberg
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.salo.pockettrachtenberg.learnsactivities.LearnActivityEleven
+import com.salo.pockettrachtenberg.learnsactivities.LearnActivitySeven
 import kotlinx.android.synthetic.main.activity_multiply.*
 import kotlinx.android.synthetic.main.bottom_sheet.*
 
@@ -21,6 +24,15 @@ class MultiplyActivity : AppCompatActivity() {
         sheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN)
 
         buttonsNumbers()
+
+        id_learn_button_in_bottom_sheet.setOnClickListener {
+            if(mNumberForLearnOrPracticeActivity == 11) {
+                startActivity(Intent(this, LearnActivityEleven::class.java))
+            }
+            else if (mNumberForLearnOrPracticeActivity == 7) {
+                startActivity(Intent(this, LearnActivitySeven::class.java))
+            }
+        }
     }
 
     override fun finish() {

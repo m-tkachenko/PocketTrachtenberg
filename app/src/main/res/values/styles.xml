@@ -14,7 +14,7 @@
     </style>
 
     <style name="Widget.MyApp.SmallShapeAppearance" parent="ShapeAppearance.MaterialComponents.SmallComponent">
-        <item name="cornerFamily">cut</item>
+        <item name="cornerFamily">rounded</item>
         <item name="cornerSize">7dp</item>
     </style>
 
