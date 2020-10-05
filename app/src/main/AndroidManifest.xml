@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/app_icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".learnsactivities.LearnActivitySeven"></activity>
+        <activity android:name=".practiceactivities.PracticeActivitySeven"></activity>
+        <activity android:name=".practiceactivities.PracticeActivityEleven" />
+        <activity android:name=".learnsactivities.LearnActivitySeven" />
         <activity android:name=".learnsactivities.LearnActivityEleven" />
         <activity android:name=".SquaringLearnActivity" />
         <activity android:name=".DevideLearnActivity" />

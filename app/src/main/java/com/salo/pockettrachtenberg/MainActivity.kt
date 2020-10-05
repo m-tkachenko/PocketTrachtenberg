@@ -14,7 +14,6 @@ import androidx.core.app.NotificationCompat.VISIBILITY_PUBLIC
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
 import com.google.android.material.snackbar.Snackbar
-import kotlinx.android.synthetic.main.activity_main.*
 
 @Suppress("CAST_NEVER_SUCCEEDS")
 class MainActivity : AppCompatActivity() {
@@ -45,80 +44,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 //        createNotificationChanell()
-        setContentView(R.layout.activity_main)
         setSupportActionBar(findViewById(R.id.toolbar))
-        digitsButtons()
+//        digitsButtons()
         data = getSharedPreferences("SP_INFO", Context.MODE_PRIVATE)
         editData = data.edit()
         //                                                int is to small for this app
-        id_win_textview.text = win.toString()
-        id_lose_textview.text = lose.toString()
-
-//        createNotification()
-
-        id_multiply11_switch.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) {
-                id_num_textview.text = number
-                multiplier = 11
-
-                id_multiply12_switch.isEnabled = false
-                id_multiply6_switch.isEnabled = false
-
-                checkButton()
-            }
-            else {
-                id_check_button.isEnabled = false
-                id_multiply12_switch.isEnabled = true
-                id_multiply6_switch.isEnabled = true
-
-                id_num_textview.text = ""
-            }
-        }
-
-        id_multiply12_switch.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) {
-                id_num_textview.text = number
-                multiplier = 12
-
-                id_multiply11_switch.isEnabled = false
-                id_multiply6_switch.isEnabled = false
-
-                checkButton()
-            }
-            else {
-                id_check_button.isEnabled = false
-                id_multiply11_switch.isEnabled = true
-                id_multiply6_switch.isEnabled = true
-
-                id_num_textview.text = ""
-            }
-        }
-
-        id_multiply6_switch.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) {
-                id_num_textview.text = number
-                multiplier = 6
-
-                id_multiply11_switch.isEnabled = false
-                id_multiply12_switch.isEnabled = false
-
-                checkButton()
-            }
-            else {
-                id_check_button.isEnabled = false
-                id_multiply11_switch.isEnabled = true
-                id_multiply12_switch.isEnabled = true
-
-                id_num_textview.text = ""
-            }
-        }
-
-        id_trachtenberg_chat_button_enter.setOnClickListener {
-            val intent = Intent(this, TrachtenbergChatActivity::class.java)
-            startActivity(intent)
-
-            overridePendingTransition(R.anim.slide_in_up, R.anim.slide_out_up)
-        }
     }
 
     private fun createNotification() {
@@ -158,53 +88,53 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun checkButton () {
-
-        id_check_button.isEnabled = true
-
-        id_check_button.setOnClickListener {
-
-            val view = R.id.main_constraint_layout
-
-            val answerString = id_check_answer_edittext.text.toString()
-            digit = id_number_digit_textview.text.toString().toInt()
-
-            if (answerString.isEmpty()) {
-                val warningSnackbar = Snackbar.make(findViewById(R.id.main_constraint_layout), "Please enter your answer", Snackbar.LENGTH_LONG)
-                warningSnackbar.view.setBackgroundColor(ContextCompat.getColor(this, R.color.colorPrettyRed))
-                warningSnackbar.show()
-            }
-            else {
-
-                val answerInt = answerString.toInt()
-                multiNumber = number?.toInt()?.times(multiplier)
-
-                if (answerInt == multiNumber) {
-
-                    win++
-
-                    val winSnackbar = Snackbar.make(findViewById(R.id.main_constraint_layout), "Yeeepy", Snackbar.LENGTH_SHORT)
-                    winSnackbar.view.setBackgroundColor(ContextCompat.getColor(this, R.color.colorBestGreen))
-                    winSnackbar.show()
-                }
-                else if (answerInt != multiNumber) {
-
-                    lose++
-
-                    val loseSnackbar = Snackbar.make(findViewById(R.id.main_constraint_layout), "Upsi-dupsi. Answer is: $multiNumber", Snackbar.LENGTH_LONG)
-                    loseSnackbar.view.setBackgroundColor(ContextCompat.getColor(this, R.color.colorPrettyRed))
-                    loseSnackbar.show()
-                }
-
-                number = random(digit)
-                id_num_textview.text = number
-                id_check_answer_edittext.text.clear()
-
-                id_win_textview.text = win.toString()
-                id_lose_textview.text = lose.toString()
-            }
-        }
-    }
+//    private fun checkButton () {
+//
+//        id_check_button.isEnabled = true
+//
+//        id_check_button.setOnClickListener {
+//
+//            val view = R.id.main_constraint_layout
+//
+//            val answerString = id_check_answer_edittext.text.toString()
+//            digit = id_number_digit_textview.text.toString().toInt()
+//
+//            if (answerString.isEmpty()) {
+//                val warningSnackbar = Snackbar.make(findViewById(R.id.main_constraint_layout), "Please enter your answer", Snackbar.LENGTH_LONG)
+//                warningSnackbar.view.setBackgroundColor(ContextCompat.getColor(this, R.color.colorPrettyRed))
+//                warningSnackbar.show()
+//            }
+//            else {
+//
+//                val answerInt = answerString.toInt()
+//                multiNumber = number?.toInt()?.times(multiplier)
+//
+//                if (answerInt == multiNumber) {
+//
+//                    win++
+//
+//                    val winSnackbar = Snackbar.make(findViewById(R.id.main_constraint_layout), "Yeeepy", Snackbar.LENGTH_SHORT)
+//                    winSnackbar.view.setBackgroundColor(ContextCompat.getColor(this, R.color.colorBestGreen))
+//                    winSnackbar.show()
+//                }
+//                else if (answerInt != multiNumber) {
+//
+//                    lose++
+//
+//                    val loseSnackbar = Snackbar.make(findViewById(R.id.main_constraint_layout), "Upsi-dupsi. Answer is: $multiNumber", Snackbar.LENGTH_LONG)
+//                    loseSnackbar.view.setBackgroundColor(ContextCompat.getColor(this, R.color.colorPrettyRed))
+//                    loseSnackbar.show()
+//                }
+//
+//                number = random(digit)
+//                id_num_textview.text = number
+//                id_check_answer_edittext.text.clear()
+//
+//                id_win_textview.text = win.toString()
+//                id_lose_textview.text = lose.toString()
+//            }
+//        }
+//    }
 
     private fun random(digits: Int): String? {
         val min = 0
@@ -229,14 +159,14 @@ class MainActivity : AppCompatActivity() {
         return randomizeNumber.toString()
     }
 
-    private fun digitsButtons() {
-        id_minus_digit_button.setOnClickListener {
-            digit--
-            id_number_digit_textview.text = digit.toString()
-        }
-        id_plus_digit_button.setOnClickListener {
-            digit++
-            id_number_digit_textview.text = digit.toString()
-        }
-    }
+//    private fun digitsButtons() {
+//        id_minus_digit_button.setOnClickListener {
+//            digit--
+//            id_number_digit_textview.text = digit.toString()
+//        }
+//        id_plus_digit_button.setOnClickListener {
+//            digit++
+//            id_number_digit_textview.text = digit.toString()
+//        }
+//    }
 }

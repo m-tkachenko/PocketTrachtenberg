@@ -7,6 +7,8 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.salo.pockettrachtenberg.learnsactivities.LearnActivityEleven
 import com.salo.pockettrachtenberg.learnsactivities.LearnActivitySeven
+import com.salo.pockettrachtenberg.practiceactivities.PracticeActivityEleven
+import com.salo.pockettrachtenberg.practiceactivities.PracticeActivitySeven
 import kotlinx.android.synthetic.main.activity_multiply.*
 import kotlinx.android.synthetic.main.bottom_sheet.*
 
@@ -28,9 +30,22 @@ class MultiplyActivity : AppCompatActivity() {
         id_learn_button_in_bottom_sheet.setOnClickListener {
             if(mNumberForLearnOrPracticeActivity == 11) {
                 startActivity(Intent(this, LearnActivityEleven::class.java))
+                sheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN)
             }
             else if (mNumberForLearnOrPracticeActivity == 7) {
                 startActivity(Intent(this, LearnActivitySeven::class.java))
+                sheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN)
+            }
+        }
+
+        id_practice_button_in_bottom_sheet.setOnClickListener {
+            if(mNumberForLearnOrPracticeActivity == 11) {
+                startActivity(Intent(this, PracticeActivityEleven::class.java))
+                sheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN)
+            }
+            else if (mNumberForLearnOrPracticeActivity == 7) {
+                startActivity(Intent(this, PracticeActivitySeven::class.java))
+                sheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN)
             }
         }
     }

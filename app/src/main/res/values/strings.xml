@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">PocketTrachtenberg</string>
     <string name="string_check_button">Check</string>
-    <string name="string_text_digit_textview">Digit</string>
+    <string name="string_text_digit_textview">Digit:</string>
     <string name="string_number_digit_textview">2</string>
     <string name="string_hint_answer_edittext">Answer</string>
     <string name="string_text_lose_textview">Lose</string>
@@ -9,4 +9,8 @@
     <string name="string_multiply11_switch_textview">Multiply by 11</string>
     <string name="string_multiply12_switch_textview">Multiply by 12</string>
     <string name="string_multiply6_switch_textview">Multiply by 6</string>
+    <string name="string_square_textview">Square</string>
+    <string name="string_devide_textview">Divide</string>
+    <string name="string_multiply_textview">Multiply</string>
+    <string name="string_plus_textview">Plus</string>
 </resources>

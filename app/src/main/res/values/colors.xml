@@ -18,4 +18,6 @@
     <color name="colorBestGreen">#06A77D</color>
     <color name="colorPurpleCosmos">#9F5AA0</color>
     <color name="colorDefaultWhite">#FFFFFF</color>
+    <color name="colorDefaultBlack">#000000</color>
+    <color name="colorDefaultGrey">#EEEEEE</color>
 </resources>
