@@ -386,8 +386,8 @@
                           <map>
                             <entry key="assetSourceType" value="FILE" />
                             <entry key="color" value="ffffff" />
-                            <entry key="outputName" value="ic_square" />
-                            <entry key="sourceFile" value="$USER_HOME$/Downloads/square.svg" />
+                            <entry key="outputName" value="ic_plus_digit_button" />
+                            <entry key="sourceFile" value="$USER_HOME$/Downloads/262036-maths-symbols/svg/plus_digit_button.svg" />
                           </map>
                         </option>
                       </PersistentState>

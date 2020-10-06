@@ -28,6 +28,7 @@ class PracticeActivitySeven : AppCompatActivity() {
         id_num_textview.text = random(digit)
 
         checkButton()
+        digitsButtons()
     }
 
     @RequiresApi(Build.VERSION_CODES.JELLY_BEAN)
@@ -64,6 +65,19 @@ class PracticeActivitySeven : AppCompatActivity() {
                 id_num_textview.text = number
                 id_check_answer_edittext.text.clear()
             }
+        }
+    }
+
+    private fun digitsButtons() {
+
+        id_digit_plus_button.setOnClickListener {
+            digit++
+            id_number_digit_textview.text = digit.toString()
+        }
+
+        id_digit_minus_button.setOnClickListener {
+            digit--
+            id_number_digit_textview.text = digit.toString()
         }
     }
 
