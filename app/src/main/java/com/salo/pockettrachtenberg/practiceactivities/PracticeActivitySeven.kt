@@ -1,7 +1,10 @@
 package com.salo.pockettrachtenberg.practiceactivities
 
+import android.graphics.Color
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import com.google.android.material.snackbar.Snackbar
 import com.salo.pockettrachtenberg.R
@@ -16,6 +19,7 @@ class PracticeActivitySeven : AppCompatActivity() {
     private var multiplier = 7
     private var multiNumber = number?.toInt()?.times(multiplier)
 
+    @RequiresApi(Build.VERSION_CODES.JELLY_BEAN)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_practice_seven)
@@ -26,6 +30,7 @@ class PracticeActivitySeven : AppCompatActivity() {
         checkButton()
     }
 
+    @RequiresApi(Build.VERSION_CODES.JELLY_BEAN)
     private fun checkButton () {
 
         id_check_button.setOnClickListener {
@@ -37,7 +42,8 @@ class PracticeActivitySeven : AppCompatActivity() {
 
             if (answerString.isEmpty()) {
                 val warningSnackbar = Snackbar.make(findViewById(view), "Please enter your answer", Snackbar.LENGTH_LONG)
-                warningSnackbar.view.setBackgroundColor(ContextCompat.getColor(this, R.color.colorPrettyRed))
+                warningSnackbar.setTextColor(Color.WHITE)
+                warningSnackbar.view.background = resources.getDrawable(R.drawable.round_corner_snackbar)
                 warningSnackbar.show()
             }
             else {
@@ -47,7 +53,7 @@ class PracticeActivitySeven : AppCompatActivity() {
                 if (answerInt != multiNumber) {
 
                     val loseSnackbar = Snackbar.make(findViewById(view), "Upsi-dupsi. Answer is: $multiNumber", Snackbar.LENGTH_LONG)
-                    loseSnackbar.view.setBackgroundColor(ContextCompat.getColor(this, R.color.colorPrettyRed))
+                    loseSnackbar.view.background = resources.getDrawable(R.drawable.round_corner_snackbar)
                     loseSnackbar.show()
                 }
                 else if (answerInt == multiNumber) {

@@ -7,7 +7,7 @@
         <item name="colorAccent">@color/colorPrimaryDark</item>
         <item name="colorSecondary">@color/colorSecondary</item>
         <item name="colorSecondaryVariant">@color/colorSecondaryDark</item>
-        <item name="colorSurface">@color/colorPrimaryDark</item>
+        <item name="colorSurface">@color/colorDefaultWhite</item>
         <item name="colorOnSurface">@color/colorPrimaryDark</item>
         <item name="shapeAppearanceSmallComponent">@style/Widget.MyApp.SmallShapeAppearance</item>
         <item name="android:fontFamily" tools:targetApi="jelly_bean">@font/font_roboto</item>

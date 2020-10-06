@@ -36,6 +36,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
         app:layout_constraintWidth_percent="0.435"
+        app:cardBackgroundColor="@color/colorPrimaryDark"
         app:shapeAppearance="?attr/shapeAppearanceSmallComponent"
         tools:targetApi="lollipop">
 
@@ -84,6 +85,7 @@
         app:layout_constraintHeight_percent="0.3"
         app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
         app:layout_constraintWidth_percent="0.435"
+        app:cardBackgroundColor="@color/colorPrimaryDark"
         app:shapeAppearance="?attr/shapeAppearanceSmallComponent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -131,6 +133,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/id_cardview_material_multiply"
         app:layout_constraintWidth_percent="0.435"
+        app:cardBackgroundColor="@color/colorPrimaryDark"
         app:shapeAppearance="?attr/shapeAppearanceSmallComponent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -178,6 +181,7 @@
         app:layout_constraintHeight_percent="0.3"
         app:layout_constraintTop_toBottomOf="@+id/id_cardview_material_plus"
         app:layout_constraintWidth_percent="0.435"
+        app:cardBackgroundColor="@color/colorPrimaryDark"
         app:shapeAppearance="?attr/shapeAppearanceSmallComponent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -230,6 +234,7 @@
         app:layout_constraintHeight_percent="0.2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/id_cardview_material_devide"
+        app:cardBackgroundColor="@color/colorPrimaryDark"
         app:shapeAppearance="?attr/shapeAppearanceSmallComponent">
 
         <LinearLayout
